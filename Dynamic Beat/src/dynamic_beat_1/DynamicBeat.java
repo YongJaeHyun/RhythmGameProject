@@ -62,6 +62,9 @@ public class DynamicBeat extends JFrame {
 		});
 		add(menuBar);
 		
+		Music introMusic = new Music("introMusic.mp3", true);
+		introMusic.start();
+		
 		startButton.setBounds(560,490,150,80);
 		startButton.setBorderPainted(false);
 		startButton.setContentAreaFilled(false);
@@ -77,7 +80,13 @@ public class DynamicBeat extends JFrame {
 				startButton.setIcon(startButtonBasicImage);
 				startButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
+			public void mousePressed(MouseEvent e) {
+				new songSelectionMenu();
+				setVisible(false);
+				introMusic.close();
+			}
 		});
+		
 		add(startButton);
 		
 		optionButton.setBounds(510,600,250,90);
@@ -99,8 +108,6 @@ public class DynamicBeat extends JFrame {
 		add(optionButton);
 
 	
-		Music introMusic = new Music("introMusic.mp3", true);
-		introMusic.start();
 	}
 
 	public void paint(Graphics g) {
