@@ -4,3 +4,6 @@ Dynamic Beat/.project
 Dynamic Beat/.settings
 Dynamic Beat/bin
 /.metadata/
+/bin/
+.classpath
+.project
