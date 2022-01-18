@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -41,6 +43,7 @@ public class PracticeOfBeat extends JFrame {
 	private Image Title = new ImageIcon(Main.class.getResource("../images/introBackgroundTitleImage.png")).getImage();
 	
 	private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../images/menuBar.png")));
+	private JLabel songSelectScreen = new JLabel(new ImageIcon(Main.class.getResource("../images/menuBar.png")));
 
 	private JButton startButton = new JButton(startButtonBasicImage);
 	private JButton optionButton = new JButton(optionButtonBasicImage);
@@ -82,6 +85,24 @@ public class PracticeOfBeat extends JFrame {
 			}
 		});
 		add(menuBar);
+		
+		songSelectScreen.setBounds(0, 0, 1280, 720);
+		songSelectScreen.addKeyListener (new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				int KeyCode = e.getKeyCode();
+				if (KeyCode == KeyEvent.VK_ENTER)
+					System.exit(0);
+			}
+//			public boolean isAltDown() {
+//				public keyPressed(KeyEvent e) {
+//					int KeyCode = e.getKeyCode();
+//					if (KeyCode == KeyEvent.VK_ENTER)
+//						setExtendedState(JFrame.MAXIMIZED_BOTH);
+//				}
+//			}
+		});
+		add(songSelectScreen);
 
 		// start버튼의 화면 설정 및 여러 마우스 기능 구현
 		startButton.setBounds(560, 465, 150, 80);
@@ -202,6 +223,16 @@ public class PracticeOfBeat extends JFrame {
 		// UI가 나온 후, 음악이 재생
 		Music introMusic = new Music("introMusic.mp3", true);
 		introMusic.start();
+//		if (isMainScreen);
+//		{
+//			introMusic.interrupt();
+//			Music SelectMusic = new Music("InTheBlueShirt_ClusterA(Fusq_Remix).mp3",true);
+//		}
+		/* 위 아래 방향키버튼을 이용해서 노래를 선택하면 그 노래가 나오도록 설정할 예정.
+		 * if (keyBoardPreesed); {
+		 * 
+		 * }
+		 */
 
 	}
 
